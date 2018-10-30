@@ -25,3 +25,5 @@ Skyriuje Events veikia paieška pagal visus esamus laukus. Ieškoma per duombaz�
 ![gr4](https://user-images.githubusercontent.com/43058977/47702021-5f439c80-dc24-11e8-8688-8787a5932eab.jpg)
 
 ![gr5](https://user-images.githubusercontent.com/43058977/47702086-88fcc380-dc24-11e8-8da7-56a22389ecd4.jpg)
+
+![gr6](https://user-images.githubusercontent.com/43058977/47702124-a467ce80-dc24-11e8-9126-c886e235ae6c.jpg)
