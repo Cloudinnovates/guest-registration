@@ -8,7 +8,7 @@ Mano išpildyti skyriai yra: Event, Guest, Card History + atitinkami JUnit ir Mo
 
 Programa susideda iš skirtingų CRUD tipo lentelių, kurių kiekviena turi savo logiką, užduotį ir sąsajas su skirtingais duombazės Collections ir kitomis lentelėmis.
 
-Aplikacija yr susieta su Mongo duomenų baze.
+Aplikacija yra susieta su Mongo duomenų baze.
 
 Paleidus Server ir Client dalis programa veikia http://localhost:4200 adresu.
 
