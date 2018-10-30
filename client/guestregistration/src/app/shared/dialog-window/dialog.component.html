@@ -1,0 +1,10 @@
+<h3 mat-dialog-title>{{'confirmation_text' | translate}}</h3>
+
+<mat-dialog-content>
+  <p id="confirmText">{{'delete.confirmation_text' | translate}}?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button id="cancelBtn" (click)="close()">{{'cancel_button' | translate}}</button>
+  <button id="deleteBtn" (click)="delete()">{{'delete_button' | translate}}</button>
+</mat-dialog-actions>
+

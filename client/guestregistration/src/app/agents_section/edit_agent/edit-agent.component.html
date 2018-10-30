@@ -1,0 +1,54 @@
+<div>
+
+  <h6 id="create-agent-title"><img src="../../assets/img/345300.png" alt="Failed to load"/>
+    {{'agents.edit_participant' | translate}}</h6>
+
+  <div>
+    <form [formGroup]="editAgentForm">
+
+      <label id="agent-name">{{'agents.name' | translate}}:</label>
+      <input type="text" formControlName="agent_name" class="form-control" [(ngModel)]="this.agent.name"
+             [ngClass]="{ 'is-invalid': submitted && f.agent_name.errors }"/>
+      <div *ngIf="submitted && f.agent_name.errors" class="invalid-feedback">
+        <div *ngIf="f.agent_name.errors.required" class="errorMsg">{{'agents.required_name' | translate}}</div>
+      </div>
+
+      <label>{{'agents.surname' | translate}}:</label>
+      <input type="text" formControlName="agent_surname" class="form-control" [(ngModel)]="this.agent.surname"
+             [ngClass]="{ 'is-invalid': submitted && f.agent_surname.errors }"/>
+      <div *ngIf="submitted && f.agent_surname.errors" class="invalid-feedback">
+        <div *ngIf="f.agent_surname.errors" class="errorMsg">{{'agents.required_surname' | translate}}</div>
+      </div>
+
+      <label>{{'agents.phone' | translate}}:</label>
+      <input type="text" formControlName="agent_phone" class="form-control" [(ngModel)]="this.agent.phone"
+             [ngClass]="{ 'is-invalid': submitted && f.agent_phone.errors }"/>
+      <div *ngIf="submitted && f.agent_phone.errors" class="invalid-feedback">
+        <div *ngIf="f.agent_phone.errors.required" id="phoneErrorMsg">{{'agents.required_phone' | translate}}</div>
+      </div>
+
+      <label>{{'agents.address' | translate}}:</label>
+      <input type="text" formControlName="agent_address" class="form-control" [(ngModel)]="this.agent.address"/>
+
+      <label>{{'agents.gender' | translate}}:</label>
+      <select id="gender" class="form-control" name="gender" formControlName="agent_gender" [(ngModel)]="this.agent.gender">
+        <option style="display:none"></option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <label>{{'agents.date_of_birth' | translate}}:</label>
+      <input type="date" formControlName="agent_date_of_birth" id="date_of_birth" class="form-control" [(ngModel)]="date_of_birth"/> 
+
+      <label>{{'agents.work_place' | translate}}:</label>
+      <input type="text" formControlName="agent_work_place" class="form-control" [(ngModel)]="this.agent.work_place"/>
+
+      <div class="form-buttons">
+        <button (click)="editAgent(this.agent)" id="submitBtn">{{'submit_button' | translate}}</button>
+        <a [routerLink]="['/agents']" routerLinkActive="active" id="cancelBtn">{{'cancel_button' | translate}}</a>
+      </div>
+    </form>
+  </div>
+
+</div>
+

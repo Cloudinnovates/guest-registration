@@ -1,0 +1,79 @@
+<div>
+
+  <h3 id="edit-employee-title"><img src="../../assets/img/345300.png" alt="Failed to load"/>
+    {{'employees.edit_information' | translate}}</h3>
+
+  <div>
+    <form ngNativeValidate>
+      <div class="form-group">
+        <label for="employee_name">{{'employees.name' | translate}}:</label>
+        <input type="text" id="employee_name" class="form-control" name="firstName" [(ngModel)]="firstName" required>
+
+        <label for="employee_surname">{{'employees.surname' | translate}}:</label>
+        <input type="text" id="employee_surname" class="form-control" name="lastName" [(ngModel)]="lastName" required>
+
+        <label for="employee_phone">{{'employees.phone' | translate}}:</label>
+        <input type="text" id="employee_phone" class="form-control" name="phone" [(ngModel)]="phone" required>
+
+        <label for="employee_position">{{'employees.position' | translate}}:</label>
+        <input type="text" id="employee_position" class="form-control" name="position" [(ngModel)]="position" required>
+
+        <label for="employment_date">{{'employees.employment_date' | translate}}:</label>
+        <input type="date" id="employment_date" class="form-control" name="employment_date" [(ngModel)]="employment_date" required/>
+
+        <label for="card_issue_date">{{'employees.card_issue_date' | translate}}:</label>
+        <input type="date" class="form-control" id="card_issue_date" name="card_issue_date" [(ngModel)]="card_issue_date" required/>
+
+        <label for="dismissal_date">{{'employees.dismissal_date' | translate}}:</label>
+        <input type="date" class="form-control" id="dismissal_date" name="dismissal_date" [(ngModel)]="dismissal_date"/>
+
+        <label for="location">{{'employees.location' | translate}}:</label>
+        <select id="location" class="form-control" name="officeId" [(ngModel)]="employee.officeId"
+                (change)="getCards($event.target.value); initialOfficeIdChanger($event.target.value)" required>
+          <option selected style="display: none;">{{initial_office}}</option>
+          <option *ngFor="let office of offices" [value]="office.id">{{office.name}}</option>
+        </select>
+
+        <div *ngIf="(cards?.length > 0) || (initial_office_id == selected_office_id); else disabled">
+          <div *ngIf="cards?.length > 0; else less">
+            <label for="card_no">{{'employees.cardNo' | translate}}:</label>
+            <select id="card_no" class="form-control" name="cardId" [(ngModel)]="card_no" required>
+              <option selected style="display: none;">{{card_no}}</option>
+              <option *ngFor="let card of cards" [value]="card.id">{{card.cardNo}},
+                {{'employees.cardType' | translate}}: {{card.cardType}}</option>
+            </select>
+          </div>
+
+          <ng-template #less>
+            <label for="card_no">{{'employees.cardNo' | translate}}:</label>
+            <select id="card_no" class="form-control" name="cardId" [(ngModel)]="card_no" required>
+              <option selected style="display: none;">{{card_no}}</option>
+              <option disabled>{{'employees.noCards' | translate}}</option>
+            </select>
+          </ng-template>
+
+          <div class="form-buttons">
+            <button id="submitBtn" (click)="editEmployee()">{{'submit_button' | translate}}
+            </button>
+            <a (click)="cancelBtnPressed()" id="cancelBtn">{{'cancel_button' | translate}}</a>
+          </div>
+        </div>
+
+        <ng-template #disabled>
+          <label for="card_no">{{'employees.cardNo' | translate}}:</label>
+          <select id="card_no" class="form-control" name="cardId">
+            <option selected style="display: none;">{{card_no}}</option>
+            <option disabled>{{'employees.noCards' | translate}}</option>
+          </select>
+          <div class="form-buttons">
+            <button id="submitBtn" style="display:none;">{{'submit_button' | translate}}</button>
+            <a (click)="cancelBtnPressed()" id="cancelBtn">{{'cancel_button' | translate}}</a>
+          </div>
+        </ng-template>
+
+      </div>
+    </form>
+  </div>
+
+</div>
+

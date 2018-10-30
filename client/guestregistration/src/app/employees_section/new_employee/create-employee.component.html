@@ -1,0 +1,56 @@
+<div>
+
+  <h3 id="create-employee-title"><img src="../../assets/img/add_users_group-512.png" alt="Failed to load"/>
+    {{'employees.registration' | translate}}</h3>
+
+  <div>
+    <form ngNativeValidate>
+      <div class="form-group">
+        <label for="agentId">{{'employees.employee' | translate}}</label>
+        <select id="agentId" class="form-control" name="employee_agentId" #employee_agentId required>
+          <option *ngFor="let agent of agents" [value]="agent.id">{{agent.name}} {{agent.surname}}</option>
+        </select>
+
+        <label>{{'employees.employee_position' | translate}}:</label>
+        <input type="text" class="form-control" #employee_position required/>
+
+        <label>{{'employees.employment_date' | translate}}:</label>
+        <input type="date" class="form-control" class="date" #employee_employment_date required/>
+
+        <label>{{'employees.card_issue_date' | translate}}:</label>
+        <input type="date" class="form-control" class="date" #employee_card_issue_date required/>
+
+        <label for="location">{{'employees.location' | translate}}:</label>
+        <input id="location" type="text" name="office" disabled [value]="office">
+
+
+        <div *ngIf="cards?.length > 0; else disabled">
+          <label>{{'employees.cardNo' | translate}}:</label>
+          <select id="card_no" class="form-control" name="card_no" #employee_card_no required>
+            <option *ngFor="let card of cards" [value]="card.id">{{card.cardNo}}, {{'employees.cardType' | translate}}: {{card.cardType}}</option>
+          </select>
+          <div class="form-buttons">
+            <button id="submitBtn" (click)="createEmployee(employee_agentId.value, employee_position.value,
+              employee_employment_date.value, employee_card_issue_date.value, employee_card_no.value)">{{'submit_button' | translate}}
+            </button>
+            <a (click)="cancelBtnPressed()" id="cancelBtn">{{'cancel_button' | translate}}</a>
+          </div>
+        </div>
+
+        <ng-template #disabled>
+          <label>{{'employees.cardNo' | translate}}:</label>
+          <select id="card_no" class="form-control" name="card_no">
+            <option selected style="display: none;">{{'employees.noCards' | translate}}</option>
+          </select>
+          <div class="form-buttons">
+            <button id="submitBtn" style="display:none;">{{'submit_button' | translate}}</button>
+            <a (click)="cancelBtnPressed()" id="cancelBtn">{{'cancel_button' | translate}}</a>
+          </div>
+        </ng-template>
+
+      </div>
+    </form>
+  </div>
+
+</div>
+

@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="right">
+    <label for="event-date-from">{{'events.start_date' | translate}}</label>
+    <h5 id="event-date-from">{{event.dateFrom}}</h5>
+    <label for="event-date-to">{{'events.end_date' | translate}}</label>
+    <h5 id="event-date-to">{{event.dateTo}}</h5>
+    <label for="event-type">{{'events.type' | translate}}</label>
+    <h5 id="event-type">{{event.eventType}}</h5>
+    <label for="event-participant-no">{{'events.participants_no' | translate}}</label>
+    <h5 id="event-participant-no">{{event.participantNo}}</h5>
+  </div>
+  <div class="left">
+    <h2 id="event-name">{{event.eventName}}</h2>
+    <label for="event-location">{{'events.location' | translate}}</label>
+    <h5 id="event-location">{{event.location}}</h5>
+    <label for="event-manager">{{'events.manager' | translate}}</label>
+    <h5 id="event-manager">{{event.manager}}</h5>
+    <ng-container *ngIf="event.private; else public">
+      <h5>{{'events.private' | translate}}</h5>
+    </ng-container>
+    <ng-template #public>
+      <h5>{{'events.public' | translate}}</h5>
+    </ng-template>
+  </div>
+</div>
+<ng-container *ngIf="showDetailsFuncionality">
+  <form class="add-form" id="search-field">
+    <mat-form-field>
+      <input id="search-input" type="text" placeholder="{{'participants.add_participant' | translate}}" matInput [formControl]="myControl"
+        [matAutocomplete]="auto" (keyup)="searchAgent($event.target.value)">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let agent of options" [value]="agent.name">
+          {{agent.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <button *ngIf="options.length != 0" class="btn btn-primary save-btn" (click)="addNewParticipant()">{{'participants.add_participant' | translate}}</button>
+  <button *ngIf="options.length === 0" class="btn btn-primary" (click)="createNewAgent()">{{'participants.create_new_participant' | translate}}</button>
+</ng-container>
+
+<div>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="participant">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.participant' | translate}}</th>
+      <td mat-cell *matCellDef="let row">{{row.agent.name}} {{row.agent.surname}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.phone' | translate}}</th>
+      <td mat-cell *matCellDef="let row">{{row.agent.phone}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.address' | translate}}</th>
+      <td mat-cell *matCellDef="let row">{{row.agent.address}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.gender' | translate}}</th>
+      <td mat-cell *matCellDef="let row">{{row.agent.gender}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="date_of_birth">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.date_of_birth' | translate}}</th>
+      <td mat-cell *matCellDef="let row">{{row.agent.date_of_birth}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="work_place">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.work_place' | translate}}</th>
+      <td class="word_break" mat-cell *matCellDef="let row"> {{row.agent.work_place}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cardNo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'participants.card_status' | translate}}</th>
+      <td class="word_break" mat-cell *matCellDef="let row">
+        <ng-container *ngIf="row.card; else notprovided">
+          {{row.card.cardNo}}
+        </ng-container>
+        <ng-template #notprovided>
+          {{'participant.card_not_issued' | translate}}
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>{{'cards.action' | translate}}</th>
+      <td mat-cell *matCellDef="let row">
+
+        <ng-container *ngIf="showDetailsFuncionality; else checkIn">
+          <button class="function-buttons btn btn-danger btn-sm" id="delete-btn" (click)="deleteButtonPressed(row)">{{'participant.remove_participant' | translate}}</button>
+        </ng-container>
+        <ng-template #checkIn>
+          <ng-container *ngIf="!row.card; else return">
+            <button class="function-buttons btn btn-danger btn-sm" id="mark-arived-btn" (click)="openDialog(row)">{{'participant.issue_card' | translate}}</button>
+          </ng-container>
+          <ng-template #return>
+            <button class="function-buttons btn btn-danger btn-sm" id="mark-arived-btn" (click)="removeCard(row)">{{'participant.return_card' | translate}}</button>
+          </ng-template>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

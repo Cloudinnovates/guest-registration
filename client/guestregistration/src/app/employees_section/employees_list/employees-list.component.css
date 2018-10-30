@@ -1,0 +1,116 @@
+.employees-list-table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  table-layout: fixed;
+}
+
+.employees-list-table td, .employees-list-table th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+.employees-list-table th {
+  font-size: 15px;
+}
+
+#no-employees {
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 200px;
+}
+
+#filter {
+  background: url(https://image.flaticon.com/icons/png/128/61/61088.png) no-repeat scroll 7px 7px;
+  background-size: 5% 50%;
+  padding-left: 30px;
+  height: 30px;
+  width: 250px;
+  margin-top: 35px;
+  margin-right: 55px;
+  float: right;
+  font-size: 16px;
+}
+
+.employees-list-table tr:nth-child(even){background-color: #f2f2f2;}
+
+.employees-list-table tr:hover {
+  background-color: rgb(215, 245, 255);
+  cursor: pointer;
+}
+
+.employees-list-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #008aff;
+  color: white;
+}
+
+.deleteBtn, .editBtn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+.deleteBtn {
+  margin-left: 2px;
+}
+
+
+.page-title {
+  margin-top: 30px;
+  margin-left: 55px;
+}
+
+#newEmployeeBtn {
+  margin-left: 55px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 10px 40px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#newEmployeeBtn:hover {
+  background: rgb(215, 245, 255);
+  color: black;
+}
+
+#pagination {
+  display: flex;
+  float: right;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 55px;
+}
+
+.word_break {
+  word-wrap: break-word;
+}
+
+#backRoute {
+  margin-top: 70px;
+  margin-left: 60px;
+}
+
+#backRoute a:hover {
+  text-decoration-color: #008aff;
+}
+
+#backRoute h5{
+  color: black;
+}
+
+#actions {
+  width: 160px;
+}
+
+#card_no {
+  width: 100px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{{'events.past_title' | translate}}</title>
+      <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<body>
+
+<br><br>
+
+<div>
+  <h1>{{'events.past_title' | translate}}</h1>
+  <br><br>
+
+  <div class="upper">
+  <button class="new-event-button" disabled (click)="newEvent()">{{'events.new_event_btn' | translate}}</button>
+
+  <input type="text" (keyup)="search($event.target.value)"
+      class="form-control" placeholder="{{'events.search_placeholder' | translate}}"/>
+
+
+  <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+  </div>
+
+</div>
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="eventName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'events.name' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let event" (click)="updateEvent(event)"> {{event.eventName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="manager">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'events.manager' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let event" (click)="updateEvent(event)"> {{event.manager}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="location">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'events.location' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let event" (click)="updateEvent(event)"> {{event.location}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateFrom">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'events.start_date' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let event" (click)="updateEvent(event)"> {{event.dateFrom}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateTo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'events.end_date' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let event" (click)="updateEvent(event)"> {{event.dateTo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="participantNo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'events.participants_no' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let event" (click)="updateEvent(event)"> {{event.participantNo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="eventType">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'events.type' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let event" (click)="updateEvent(event)"> {{event.eventType}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="operations">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'customWidthClass'"> {{'events.operations' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let event" [ngClass]="'customWidthClass'">
+           <button class="matbutton" md-raised-button (click)="clickMethod(event)">{{'delete_button' | translate}}</button>
+           <button class="matbutton" md-raised-button (click)="updateEvent(event)">{{'edit_button' | translate}}</button> </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <!-- <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>  ORIGINAL-->
+    <mat-row *matRowDef="let event; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>
+
+
+</body>
+</html>

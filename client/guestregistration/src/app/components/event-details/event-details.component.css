@@ -1,0 +1,34 @@
+.right{
+    float: right;
+    width: 50%;
+    text-align: center;
+}
+
+.left{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+label{
+    color: lightgray;
+}
+
+.container{
+    width: 100%;
+    overflow: hidden;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#search-field{
+    display: inline-block;
+    margin-right: 20px; 
+}
+
+.btn{
+    margin-right: 20px;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{{'cards.card_history_title' | translate}}</title>
+      <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  </head>
+<body>
+
+<br><br>
+
+<div> 
+  <h1>{{'cards.history_title' | translate}}</h1>
+  <br><br>
+
+  <a class="back" href="/cards">< {{'guests.guest_form_back_btn' | translate}}</a>  
+
+  <div class="upper">
+  <button class="new-guest-button" disabled (click)="newGuest()">{{'guests.new_guest_btn' | translate}}</button>
+   <input type="text" (keyup)="search($event.target.value)" placeholder="{{'cards.search_card_info' | translate}}" 
+       class="form-control"/>
+
+  <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+  </div>
+
+</div>  
+
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort class="cardInfo-list-table"> 
+
+    <ng-container matColumnDef="cardNumber">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'cards.card_no' | translate}} </mat-header-cell>  
+      <mat-cell *matCellDef="let cardInfo" (click)="updateCardInfo(cardInfo)"> {{cardInfo.cardNumber}} </mat-cell> 
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'cards.first_name' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let cardInfo" (click)="updateCardInfo(cardInfo)"> {{cardInfo.firstName}} </mat-cell>  
+    </ng-container>
+
+    <ng-container matColumnDef="lastName"> 
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'cards.last_name' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let cardInfo" (click)="updateCardInfo(cardInfo)"> {{cardInfo.lastName}} </mat-cell> 
+    </ng-container>
+
+    <ng-container matColumnDef="holderType">  
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'cards.holder_type' | translate}}</mat-header-cell> 
+      <mat-cell *matCellDef="let cardInfo" (click)="updateCardInfo(cardInfo)"> {{cardInfo.holderType}} </mat-cell>  
+    </ng-container>
+
+    <ng-container matColumnDef="location">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'location'" mat-sort-header> {{'cards.location' | translate}}</mat-header-cell>   
+      <mat-cell *matCellDef="let cardInfo" [ngClass]="'location'" (click)="updateCardInfo(cardInfo)"> {{cardInfo.location}} </mat-cell>       
+    </ng-container> 
+
+    <ng-container matColumnDef="issued">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'issued'" mat-sort-header> {{'cards.issued' | translate}}</mat-header-cell>   
+      <mat-cell *matCellDef="let cardInfo" [ngClass]="'issued'" (click)="updateCardInfo(cardInfo)"> {{cardInfo.issued}} </mat-cell>       
+    </ng-container>
+
+    <ng-container matColumnDef="returned">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'returned'" mat-sort-header> {{'cards.returned' | translate}}</mat-header-cell>    
+      <mat-cell *matCellDef="let cardInfo" [ngClass]="'returned'" (click)="updateCardInfo(cardInfo)"> {{cardInfo.returned}} </mat-cell>         
+    </ng-container>
+
+    <ng-container matColumnDef="operations">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'customWidthClass'"> {{'guests.operations' | translate}} </mat-header-cell> 
+      <mat-cell *matCellDef="let cardInfo" [ngClass]="'customWidthClass'">
+           <button class="matbutton" md-raised-button (click)="clickMethod(guest)">{{'delete_button' | translate}}</button>
+           <button class="matbutton" md-raised-button (click)="updateGuest(guest)">{{'edit_button' | translate}}</button> </mat-cell>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let cardInfo; columns: displayedColumns;"></mat-row>   
+
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> 
+
+</div>
+
+<div id="card-message-container"> 
+  <p class="card-info-message">{{ message }}</p>        
+</div>   
+
+
+</body>
+</html> 

@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Select card number for {{data.agent.name}} {{data.agent.surname}}</h1>
+<div mat-dialog-content>
+
+  <mat-select placeholder="Select Card" [(ngModel)]="data.card">
+    <mat-option *ngFor="let card of cards" [value]="card">
+      {{card.cardNo}}
+    </mat-option>
+  </mat-select>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close] >Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

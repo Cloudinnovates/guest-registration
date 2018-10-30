@@ -1,0 +1,12 @@
+.btn{
+    float: right;
+    margin-left: 20px;
+}
+
+#error-alert{
+    display: none;
+}
+
+.container{
+    margin-top: 40px;
+}

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="alert alert-danger" id="error-alert" role="alert">
+    {{errorMessage}}
+  </div>
+  <h2>{{'cards.update_title' | translate}}</h2>
+  <form ngNativeValidate>
+    <div class="form-group">
+      <label for="card-no">{{'cards.card_no' | translate}}</label>
+      <input type="number" class="form-control" id="card-no" [(ngModel)]="card.cardNo" name="cardNo" required>
+    </div>
+    <div class="form-group">
+      <label for="card-location">{{'cards.location' | translate}}</label>
+      <select class="form-control" id="card-location" [(ngModel)]="card.location" name="cardLocation" required>
+        <option *ngFor="let office of offices" [value]="office.id">{{office.name}}</option>
+      </select> </div>
+    <div class="form-group">
+      <label for="card-type">{{'cards.card_type' | translate}}</label>
+      <select class="form-control" id="card-type" [(ngModel)]="card.cardType" name="cardType" required>
+          <option *ngFor="let type of types">{{type}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="card-valid-from">{{'cards.valid_from' | translate}}</label>
+      <input type="date" date-f class="form-control" id="card-valid-from" [(ngModel)]="validFrom" name="cardValidFrom" required>
+    </div>
+    <div class="form-group">
+      <label for="card-valid-thru">{{'cards.valid_thru' | translate}}</label>
+      <input type="date" date-f class="form-control" id="card-valid-thru" [(ngModel)]="validThru" name="cardValidThru" required>
+    </div>
+    <div class="form-group">
+      <label for="card-availability">{{'cards.update_availability' | translate}}</label>
+      <select class="form-control" id="card-availability" [(ngModel)]="card.cardAvailable" name="cardAvailability" required>
+        <option value="true">{{'cards.status_available' | translate}}</option>
+        <option value="false">{{'cards.status_on_hands' | translate}}</option>
+      </select>
+    </div>
+
+    <a [routerLink]="['/cards']" class="btn btn-danger cancel-btn">{{'cancel_button' | translate}}</a>
+    <button type="submit" class="btn btn-primary save-btn" (click)="onSubmit()">{{'save_button' | translate}}</button>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+#card-list-container{
+    margin-top: 60px;
+}
+
+#class-list-header {
+    display: inline-block;
+}
+
+#search-input{
+    width: 20%;
+    float: right;
+    border-radius: 0px;
+}
+
+
+.card-count{
+    /* display: inline-block; */
+    float: right;
+    margin: 10px;
+    font-weight: bold;
+}
+
+#card-count-container{
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+.function-buttons{
+    margin-left: 10px;
+}
+
+#newCard{
+    float: left;
+}
+
+tr:hover{
+    background-color: rgb(215, 245, 255);
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  #search-select{
+      margin-left: 10px;
+      float: right;
+      width: 150px;
+  }
+
+th {
+    background:none repeat scroll 0 0 #008aff;
+    color: white;
+}

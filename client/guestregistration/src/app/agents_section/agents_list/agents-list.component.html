@@ -1,0 +1,68 @@
+<div>
+
+  <h1 class="page-title">{{'agents.main_page_title' | translate}}</h1>
+  <div>
+    <a id="newAgentBtn" [routerLink]="['/agents/add']" class="btn btn-primary active" role="button" routerLinkActive="active">
+      {{'agents.new_participant' | translate}} </a>
+    <input id="filter" name="search" [(ngModel)]="searchField" (keyup)="searchInput()" placeholder="{{'agents.search_placeholder' | translate}}" type="search">
+  </div>
+
+  <div>
+    <table mat-table [dataSource]="dataSource" matSort class="agents-list-table">
+
+      <ng-container matColumnDef="participant">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.participant' | translate}}</th>
+        <td class="word_break" mat-cell *matCellDef="let row"> {{row.name}} {{row.surname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.phone' | translate}}</th>
+        <td class="word_break" mat-cell *matCellDef="let row"> {{row.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.address' | translate}}</th>
+        <td class="word_break" mat-cell *matCellDef="let row"> {{row.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th id="gender" mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.gender' | translate}}</th>
+        <td class="word_break" mat-cell *matCellDef="let row"> {{row.gender}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date_of_birth">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.date_of_birth' | translate}}</th>
+        <td class="word_break" mat-cell *matCellDef="let row"> {{row.date_of_birth}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="work_place">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.work_place' | translate}}</th>
+        <td class="word_break" mat-cell *matCellDef="let row"> {{row.work_place}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th id="actions" mat-header-cell *matHeaderCellDef mat-sort-header>{{'agents.actions' | translate}}</th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <a [routerLink]="['/agents/edit']" routerLinkActive="active" (click)="editingAgentId(row.id)">
+            <button class="editBtn">{{'update_button' | translate}}</button></a>
+          <a (click)="deleteAgent(row, i)">
+            <button class="deleteBtn">{{'delete_button' | translate}}</button></a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+    <div id="pagination">
+      <mat-paginator width="50px" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </div>
+
+  <div id="no-agents" *ngIf="agents && agents.length == 0">
+    <h5>{{'agents.no_agents' | translate}}!</h5>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,115 @@
+.offices-list-table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  table-layout: fixed;
+}
+
+.offices-list-table td, .offices-list-table th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+.offices-list-table th {
+  font-size: 15px;
+}
+
+#no-offices {
+  text-align: center;
+  margin-top: 12px;
+}
+
+#filter {
+  background: url(https://image.flaticon.com/icons/png/128/61/61088.png) no-repeat scroll 7px 7px;
+  background-size: 5% 50%;
+  padding-left: 30px;
+  height: 30px;
+  width: 310px;
+  margin-top: 20px;
+  margin-right: -27px;
+  float: right;
+  font-size: 16px;
+}
+
+.offices-list-table tr:nth-child(even){background-color: #f2f2f2;}
+
+.offices-list-table tr:hover {
+  background-color: rgb(215, 245, 255);
+  cursor: pointer;
+}
+
+.offices-list-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #008aff;
+  color: white;
+}
+
+.deleteBtn, .editBtn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+.deleteBtn {
+  margin-left: 2px;
+}
+
+
+.page-title {
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+#newOfficeBtn {
+  margin-left: 5px;
+  text-align: center;
+  padding: 10px 75px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#newOfficeBtn:hover {
+  background: rgb(215, 245, 255);
+  color: black;
+}
+
+#pagination {
+  display: flex;
+  float: right;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.word_break {
+  word-wrap: break-word;
+}
+
+/*Column width*/
+#location {
+  width: 90px;
+}
+
+#address {
+  width: 130px;
+}
+
+#email {
+  width: 150px;
+}
+
+#manager {
+  width: 150px;
+}
+
+#manager_email {
+  width: 240px;
+}
+
+#actions {
+  width: 170px;
+}

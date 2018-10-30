@@ -1,0 +1,63 @@
+<header>
+ <a [routerLink]="['/']"><img class="myLogo" src="assets/img/exadel_logo.jpg"></a>
+
+ <ul *ngIf="isLoggedIn;else other_nav">
+     <div class="language_picker">
+       <div class="inner">
+       <li class="language" (click)="switchLanguage('en')"><img src="assets/img/usa_flag.png"/>  English</li>
+       <li class="language" (click)="switchLanguage('lt')"><img src="assets/img/lt_flag.png"/>  Lithuanian</li>
+       <li class="language" (click)="switchLanguage('ru')"><img src="assets/img/ru_flag.png"/>  Russian</li>
+       </div>
+     </div>
+
+     
+    
+
+     <div class="dropdown">
+      <li><div class="dropbtn" (click)="logOut()">{{'label.log_out' | translate}}</div></li>
+      <div class="dropdown-content">
+        <a [routerLink]="['/signup']">{{'label.sign_up' | translate}}</a>
+      </div>
+    </div>
+
+   <div class="dropdown">
+     <li> <div class="dropbtn">{{'label.administration' | translate}}</div> </li>
+     <div class="dropdown-content">
+       <a [routerLink]="['/agents']">{{'label.participants' | translate}}</a>
+       <a [routerLink]="['/offices']">{{'label.offices' | translate}}</a>
+       <a [routerLink]="['/cards']">{{'label.cards' | translate}}</a>
+       <a [routerLink]="['/employees']">{{'label.employees' | translate}}</a>
+     </div>
+   </div>
+
+   <div class="dropdown">
+       <li><a class="dropbtn"  [routerLink]="['/upcoming-events']">{{'label.events' | translate}}</a></li>
+       <div class="dropdown-content">
+         <a [routerLink]="['/upcoming-events']">{{'label.upcoming_events' | translate}}</a>
+         <a [routerLink]="['/past-events']" >{{'label.past_events' | translate}}</a>
+       </div>
+     </div>
+
+     <li><a [routerLink]="['/guest-registry']">{{'label.guest_registry' | translate}}</a></li>
+
+ </ul>
+ <ng-template #other_nav>
+   <ul>
+     <div class="language_picker">
+       <div class="inner">
+         <li class="language" (click)="switchLanguage('en')"><img src="assets/img/usa_flag.png"/>  English</li>
+         <li class="language" (click)="switchLanguage('lt')"><img src="assets/img/lt_flag.png"/>  Lithuanian</li>
+         <li class="language" (click)="switchLanguage('ru')"><img src="assets/img/ru_flag.png"/>  Russian</li>
+       </div>
+     </div>
+      <li><a [routerLink]="['/guest-registry']">{{'label.guest_registry' | translate}}</a></li>
+      <li><a [routerLink]="['/login']">{{'label.log_in' | translate}}</a></li>
+   </ul>
+
+ </ng-template>
+</header>
+
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

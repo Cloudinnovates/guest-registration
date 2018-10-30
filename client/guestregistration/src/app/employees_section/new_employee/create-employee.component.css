@@ -1,0 +1,96 @@
+#create-employee-title {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-left: 190px;
+  font-size: 50px;
+}
+
+#create-employee-title img {
+  width: 10%;
+  height: 10%;
+}
+
+#employee-agentId {
+  margin-top: 10px;
+}
+
+.date {
+  height: 35px;
+  width: 500px;
+  border: 1px solid #000;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+label {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  color: #333;
+  height: 20px;
+  width: 250px;
+  display: inline-block;
+  text-align: right;
+  margin-left: 100px;
+}
+
+input[type=text] {
+  height: 35px;
+  width: 500px;
+  border: 1px solid #000;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+#agentId, #card_no, #location {
+  height: 35px;
+  width: 500px;
+  border: 1px solid #000;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+#location {
+  padding-left: 10px;
+}
+
+.form-buttons {
+  margin-top: 20px;
+  margin-right: 240px;
+  display: inline-block;
+  cursor: pointer;
+  float: right;
+}
+
+a#cancelBtn {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  margin-right: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 10px 40px;
+  background: #047511;
+  font-weight: bold;
+}
+
+#submitBtn {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #069e22), color-stop(1, #047511));
+  background:-moz-linear-gradient(top, #069e22 50%, #047511 100%);
+  background:-webkit-linear-gradient(top,#069e22 50%, #047511 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#069e228', endColorstr='#047511',GradientType=0);
+  background-color:#069e22;
+  border: none;
+  cursor:pointer;
+  color:#ffffff;
+  margin-right: 10px;
+  font-weight: bold;
+  padding:10px 40px;
+}
+
+a#cancelBtn:hover, #submitBtn:hover {
+  background: #1e41ed;
+}
+
+

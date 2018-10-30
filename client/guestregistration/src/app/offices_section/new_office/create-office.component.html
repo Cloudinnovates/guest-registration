@@ -1,0 +1,60 @@
+<div>
+
+  <h3 id="create-office-title"><img src="../../assets/img/Location-icon.jpg" alt="Failed to load"/>
+    {{'offices.new_office_title' | translate}}</h3>
+
+  <div>
+    <form [formGroup]="newOfficeForm" (ngSubmit)="createOffice(office_name.value, office_address.value, office_phone.value,
+    office_email.value, office_type.value, office_manager_name.value, office_manager_surname.value, office_manager_email.value)">
+
+      <label id="office-location">{{'offices.update_location' | translate}}:</label>
+      <input type="text" formControlName="office_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.office_name.errors }" #office_name/>
+      <div *ngIf="submitted && f.office_name.errors" class="invalid-feedback">
+        <div *ngIf="f.office_name.errors.required" class="errorMsg">{{'offices.requirements_location' | translate}}</div>
+      </div>
+
+      <label>{{'offices.update_address' | translate}}:</label>
+      <input type="text" formControlName="office_address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.office_address.errors }" #office_address/>
+      <div *ngIf="submitted && f.office_address.errors" class="invalid-feedback">
+        <div *ngIf="f.office_address.errors.required" class="errorMsg">{{'offices.requirements_address' | translate}}</div>
+      </div>
+
+      <label>{{'offices.update_phone_number' | translate}}:</label>
+      <input type="text" formControlName="office_phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.office_phone.errors }" #office_phone/>
+      <div *ngIf="submitted && f.office_phone.errors" class="invalid-feedback">
+        <div *ngIf="f.office_phone.errors.required" class="errorMsg">{{'offices.requirements_phone' | translate}}</div>
+      </div>
+
+      <label>{{'offices.update_email' | translate}}:</label>
+      <input type="text" formControlName="office_email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.office_email.errors }" #office_email/>
+      <div *ngIf="submitted && f.office_email.errors" class="invalid-feedback">
+        <div *ngIf="f.office_email.errors" class="errorMsg">{{'offices.requirements_email' | translate}}</div>
+      </div>
+
+      <label>{{'offices.update_type' | translate}}:</label>
+      <input type="text" class="form-control" #office_type/>
+
+      <label>{{'offices.update_manager_name' | translate}}:</label>
+      <input type="text" formControlName="office_manager_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.office_manager_name.errors }" #office_manager_name/>
+      <div *ngIf="submitted && f.office_manager_name.errors" class="invalid-feedback">
+        <div *ngIf="f.office_manager_name.errors.required" class="errorMsgManager">{{'offices.requirements_manager_name' | translate}}</div>
+      </div>
+
+      <label>{{'offices.update_manager_surname' | translate}}:</label>
+      <input type="text" class="form-control" #office_manager_surname/>
+
+      <label>{{'offices.update_manager_email' | translate}}:</label>
+      <input type="text" formControlName="office_manager_email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.office_manager_email.errors }" #office_manager_email/>
+      <div *ngIf="submitted && f.office_manager_email.errors" class="invalid-feedback">
+        <div *ngIf="f.office_manager_email.errors.required" class="errorMsgManager">{{'offices.requirements_manager_email' | translate}}</div>
+      </div>
+
+    <div class="form-buttons">
+      <button id="submitBtn">{{'submit_button' | translate}}</button>
+      <a [routerLink]="['/offices']" routerLinkActive="active" id="cancelBtn">{{'cancel_button' | translate}}</a>
+    </div>
+  </form>
+  </div>
+
+</div>
+

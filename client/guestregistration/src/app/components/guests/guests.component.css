@@ -1,0 +1,141 @@
+table {
+	border-collapse:collapse;
+	border-bottom:1px solid gray;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+	width: 100%;
+}
+
+table tr {
+  cursor: pointer;transition: all .25s ease-in-out;
+}
+
+table tr:hover {
+	background-color: #bebebe;
+}
+
+tr {
+	border-top:1px solid gray;
+	text-align:center;
+}
+
+tr:nth-child(even) {background: #FFFFFF}
+tr:nth-child(odd) {background: #BBBBBB}
+
+th {
+	border-bottom:1px solid gray;
+	background:none repeat scroll 0 0 #09c332;
+	padding:10px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.new-guest-button {
+	border: 1px solid #666;
+	border-radius: 5px;
+	padding: 4px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 130px;
+	padding: 8px 10px;
+	margin-bottom: 12px;
+	background: #5cb85c; 
+	color: white;
+}
+
+.btn {
+	border: 1px solid #666;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 65px;
+	padding: 2px 10px;
+	margin: 9px;
+	background: #cccccc;
+	color: #4d4d4d;
+}
+
+.form-control {
+	float: right;
+	width: 200px;
+}
+
+.upper {
+	position:relative;
+}
+
+.fa {
+	position:absolute;
+	right:12px;
+	top:5px;
+	padding:9px 8px;
+	color:#c8c8c8;
+	font-size: 18px;
+}
+
+
+/* MAT TABLE */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  /* min-width: 300px; */
+}
+
+mat-table {
+	border-collapse:collapse;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+}
+
+ng-container {
+}
+
+mat-header-cell {
+	display:flex !important;
+	justify-content:center!important;
+	background:none repeat scroll 0 0 #008aff;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+mat-cell {
+	display:flex !important;
+	justify-content:center!important;
+}
+
+mat-table mat-row {
+	cursor: pointer;transition: all .25s ease-in-out;
+}
+
+mat-table mat-row:hover {
+	background-color: #bebebe;
+}
+
+mat-row:nth-child(even) {background: #f2f2f2}
+mat-row:nth-child(odd) {background: #FFFFFF}
+
+mat-header-row {
+}
+
+.matbutton {
+	border: 1px solid #666;
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: bold;
+	width: 80px;
+	padding: 2px 10px;
+	margin: 8px;
+	background: #cccccc;
+	color: #4d4d4d;
+}
+
+.customWidthClass {
+	flex: 0 0 200px;
+}
+
+.arrived {
+	flex: 0 0 95px;
+}
+
+.left {
+	flex: 0 0 95px;     
+}

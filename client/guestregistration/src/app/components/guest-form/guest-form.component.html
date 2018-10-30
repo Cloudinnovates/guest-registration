@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{'guests.guest_form' | translate}}</title>
+        <link rel="stylesheet" type="text/css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+<body>
+
+
+<br><br>
+
+<div class="container">
+
+    <a class="back" href="/guest-registry">< {{'guests.guest_form_back_btn' | translate}}</a>
+
+    <h1>{{'guests.guest_form' | translate}}</h1>
+    <p class="allFields"><i>{{'guests.requirements' | translate}}</i></p>
+
+    <form #form="ngForm" (ngSubmit)="processForm()">
+               
+        <table>   
+
+            <tr>
+                <td><label for="guestId">{{'guests.guest' | translate}}: </label></td>
+                <td><mat-form-field class="example-full-width">
+                    <input class="exinput" type="text" [(ngModel)]="guest.guestId" 
+                          placeholder="Add guest" matInput [formControl]="myControl" 
+                          [matAutocomplete]="auto" (keyup)="search($event.target.value)">  
+
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">   
+
+                         <mat-option *ngFor="let agent of agents" [value]="agent.id"> 
+                             {{agent.name}} {{agent.surname}}
+                        </mat-option>
+
+                    </mat-autocomplete>
+                    </mat-form-field></td> 
+                    
+                    <div *ngIf="guest.errors && (guest.dirty || guest.touched)" class="alert alert-danger"> 
+                            <div>
+                              &nbsp; &nbsp; {{'guests.requirements_guest' | translate}}    
+                            </div>
+                    </div>  
+            </tr>  
+         
+
+            <tr>
+                <td><label for="visitType">{{'guests.visit_type' | translate}}: </label></td>
+                <td><input type="text" name="visitType" class="form-control" [(ngModel)]="guest.visitType"
+                           #visitType="ngModel"></td>
+                           <!-- <div *ngIf="visitType.errors && (visitType.dirty || visitType.touched)" class="alert alert-danger">
+                                  <div>
+                                    &nbsp; &nbsp; {{'guests.requirements_visit_type' | translate}}
+                                  </div>
+                           </div> --> 
+            </tr>   
+
+            <tr>
+                <td><label for="arrived">{{'guests.arrived' | translate}}: </label></td>
+                <td><input type="date" name="arrived" class="form-control" [(ngModel)]="guest.arrived" required 
+                           #arrived="ngModel"></td>
+                           <div *ngIf="arrived.errors && (arrived.dirty || arrived.touched)" class="alert alert-danger"> 
+                                  <div>
+                                    &nbsp; &nbsp; {{'guests.requirements_arrival' | translate}} 
+                                  </div>
+                           </div> 
+            </tr>
+
+            <tr>
+                <td><label for="left">{{'guests.left' | translate}}: </label></td>
+                <td><input type="date" name="left" class="form-control" [(ngModel)]="guest.left"  
+                           #left="ngModel"></td>
+                           <!-- <div *ngIf="left.errors && (left.dirty || left.touched)" class="alert alert-danger">   
+                                  <div>
+                                    &nbsp; &nbsp; {{'guests.requirements_leaving' | translate}}  
+                                  </div>
+                           </div> -->
+            </tr>  
+
+            <!-- <label>{{'agents.date_of_birth' | translate}}:</label>
+            <input type="date" formControlName="agent_date_of_birth" id="date_of_birth"
+            class="form-control" [(ngModel)]="date_of_birth"/> -->  
+
+
+            
+            <tr>
+                <td><label for="cardId">{{'guests.card_no' | translate}}: </label></td>  
+                <td><select class="form-control" [(ngModel)]="guest.cardId" name="cardId" required #cardId="ngModel">   
+                        <option *ngFor="let card of cards" [value]="card.id">  
+                            <div>
+                               Card: {{card.cardNo}}    
+                            </div>
+                        </option></select></td>   
+
+                           <div *ngIf="cardId.errors && (cardId.dirty || cardId.touched)" class="alert alert-danger">    
+                                  <div>
+                                    &nbsp; &nbsp; {{'guests.requirements_card_no' | translate}}
+                                  </div>
+                           </div>  
+            </tr> 
+
+            <tr>
+                <td><label for="comment">{{'guests.comment' | translate}}: </label></td> 
+                <td><input type="text" name="comment" class="form-control" [(ngModel)]="guest.comment" 
+                           #comment="ngModel"></td>
+                           <!-- <div *ngIf="comment.errors && (comment.dirty || comment.touched)" class="alert alert-danger">
+                                  <div>
+                                    &nbsp; &nbsp; {{'guests.requirements_comment' | translate}} 
+                                  </div>
+                           </div> -->  
+            </tr>
+
+            <br><br>
+            <tr><td><input [disabled]="form.invalid" type="submit" value="{{'submit_button' | translate}}" class="submit-button"></td></tr>
+            <br>
+
+      </table>
+    </form>
+
+</div>
+
+<br>  
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

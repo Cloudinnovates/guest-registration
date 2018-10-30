@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{{'guests.guests_title' | translate}}</title>
+      <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<body>
+
+<br><br>
+
+<div>
+  <h1>{{'guests.guests_title' | translate}}</h1>
+  <br><br>
+
+  <div class="upper">
+  <button class="new-guest-button" (click)="newGuest()">{{'guests.new_guest_btn' | translate}}</button>
+
+   <input type="text" (keyup)="search($event.target.value)" placeholder="{{'guests.search_placeholder' | translate}}"
+       class="form-control"/>
+
+  <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+  </div>
+
+</div>
+
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort class="guest-list-table">
+
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'guests.first_name' | translate}} </mat-header-cell>  
+      <mat-cell *matCellDef="let guest" (click)="updateGuest(guest)"> {{guest.firstName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'guests.last_name' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let guest" (click)="updateGuest(guest)"> {{guest.lastName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="visitType">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'guests.visit_type' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let guest" (click)="updateGuest(guest)"> {{guest.visitType}} </mat-cell>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="arrived">  
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'guests.arrived' | translate}}</mat-header-cell> 
+      <mat-cell *matCellDef="let guest" (click)="updateGuest(guest)"> {{guest.arrived}} </mat-cell>
+    </ng-container> -->
+    <ng-container matColumnDef="arrived">  
+      <mat-header-cell *matHeaderCellDef [ngClass]="'arrived'" mat-sort-header> {{'guests.arrived' | translate}}</mat-header-cell> 
+      <mat-cell *matCellDef="let guest" [ngClass]="'arrived'" (click)="updateGuest(guest)"> {{guest.arrived}} </mat-cell> 
+    </ng-container>
+
+    <ng-container matColumnDef="left">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'left'" mat-sort-header> {{'guests.left' | translate}}</mat-header-cell>  
+      <mat-cell *matCellDef="let guest" [ngClass]="'left'" (click)="updateGuest(guest)"> {{guest.left}} </mat-cell>  
+    </ng-container> 
+
+    <ng-container matColumnDef="cardNumber">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'guests.card_number' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let guest" (click)="updateGuest(guest)"> {{guest.cardNumber}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="location">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'guests.location' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let guest" (click)="updateGuest(guest)"> {{guest.location}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="manager">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'guests.manager' | translate}} </mat-header-cell>  
+      <mat-cell *matCellDef="let guest" (click)="updateGuest(guest)"> {{guest.manager}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="comment">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{'guests.comment' | translate}}</mat-header-cell> 
+      <mat-cell *matCellDef="let guest" (click)="updateGuest(guest)"> {{guest.comment}} </mat-cell>
+    </ng-container> 
+
+    <ng-container matColumnDef="operations">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'customWidthClass'"> {{'guests.operations' | translate}} </mat-header-cell>
+      <mat-cell *matCellDef="let guest" [ngClass]="'customWidthClass'">
+           <button class="matbutton" md-raised-button (click)="clickMethod(guest)">{{'delete_button' | translate}}</button>
+           <button class="matbutton" md-raised-button (click)="updateGuest(guest)">{{'edit_button' | translate}}</button> </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let guest; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>
+
+
+</body>
+</html>

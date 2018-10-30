@@ -1,0 +1,15 @@
+<div class="alert alert-danger" id="error-alert" role="alert">
+  {{errorMessage}}
+</div>
+<div class="login-container">
+
+  <form class="form-signin" ngNativeValidate>
+    <h2 class="form-signin-heading">{{'label.log_in_title' | translate}}</h2>
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="text" id="inputUsername" class="form-control" placeholder="{{'label.log_in_username' | translate}}" required [(ngModel)]="username" name="username">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="{{'label.log_in_password' | translate}}" required [(ngModel)]="password" name="password">
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signIn()">{{'label.log_in' | translate}}</button>
+  </form>
+
+</div>
