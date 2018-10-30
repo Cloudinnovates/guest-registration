@@ -2,16 +2,16 @@
 
 Angular, Java, Spring Boot, Maven, MongoDB, HTML, CSS + JUnit & Mockito - CRUD Web Application. 
 
-Ği aplikacija yra mano bei 2 kolegø darbas. Kiekvienas iğ mûsø atliko treèdalá uşduoèiø.
+Å i aplikacija yra mano bei 2 kolegÅ³ darbas. Kiekvienas iÅ¡ mÅ«sÅ³ atliko treÄdalÄ¯ uÅ¾duoÄiÅ³.
 
-Mano iğpildyti skyriai yra: Event, Guest, Card History + atitinkami JUnit ir Mockito testai. 
+Mano iÅ¡pildyti skyriai yra: Event, Guest, Card History + atitinkami JUnit ir Mockito testai. 
 
-Programa susideda iğ skirtingø CRUD tipo lenteliø, kuriø kiekviena turi savo logikà, uşduotá ir sàsajas su skirtingais duombazës Collections ir kitomis lentelëmis.
+Programa susideda iÅ¡ skirtingÅ³ CRUD tipo lenteliÅ³, kuriÅ³ kiekviena turi savo logikÄ…, uÅ¾duotÄ¯ ir sÄ…sajas su skirtingais duombazÄ—s Collections ir kitomis lentelÄ—mis.
 
-Aplikacija yr susieta su Mongo duomenø baze.
+Aplikacija yr susieta su Mongo duomenÅ³ baze.
 
 Paleidus Server ir Client dalis programa veikia http://localhost:4200 adresu.
 
-Pradëjus darbà reikia atlikti LogIn. Username: admin. Password: admin.   
+PradÄ—jus darbÄ… reikia atlikti LogIn. Username: admin. Password: admin.   
 
-Skyriuje Events veikia paieğka pagal visus esamus laukus. Ieğkoma per duombazæ.
+Skyriuje Events veikia paieÅ¡ka pagal visus esamus laukus. IeÅ¡koma per duombazÄ™. 
